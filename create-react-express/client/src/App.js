@@ -20,18 +20,18 @@ class App extends Component {
   };
 }
 
-// function App() {
-//   return (
-//     <Router>
-//       <div>
-//         <Wrapper>
-//           <Route exact path="/" component={Search} />
-//           <Route exact path="/search" component={Search} />
-//         </Wrapper>
+function App() {
+  return (
+    <Router>
+      <div>
+        <Wrapper>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/search" component={Search} />
+        </Wrapper>
    
-//       </div>
-//     </Router>
-//   );
-// }
+      </div>
+    </Router>
+  );
+}
 
 export default App;

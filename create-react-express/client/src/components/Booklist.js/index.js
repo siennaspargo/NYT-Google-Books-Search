@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+// Material UI
 import Grid from '@material-ui/core/Grid'
 import TextField from '@material-ui/core/TextField'
 import * as contentful from 'contentful'
-import Books from '../components/Course'
+import Book from '../Book/index'
 
 const SPACE_ID = ''
 const ACCESS_TOKEN = ''
@@ -10,7 +11,7 @@ const ACCESS_TOKEN = ''
 
 class BookList extends Component {
   state = {
-    courses: [],
+    books: [],
     searchString: ''
   }
 
@@ -33,7 +34,7 @@ class BookList extends Component {
     })
   }
 
-  onSearchInputChange = (event) => {
+  handleInputChange = (event) => {
     if (event.target.value) {
       this.setState({searchString: event.target.value})
     } else {
@@ -52,7 +53,7 @@ class BookList extends Component {
               id="searchInput"
               palceholder="Search for books"
               margin="normal"
-              onChange={this.onSearchInputChange} />
+              onChange={this.handleInputChange} />
             <Grid container spacing={24} style={{padding: 24}}>
             { this.state.books.map(currentBook => (
               <Grid item xs={12} sm={6} lg={4} xl={3}>

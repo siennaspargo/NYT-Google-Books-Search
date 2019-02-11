@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import Jumbotron from "../../components/Jumbotron";
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+
+
+// Material UI
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
+import * as contentful from 'contentful'
+import Book from '../Book/index'
+
 
 class Books extends Component {
   // Setting our component's initial state
   state = {
+    searchString: '',
     books: [],
     authors: [],
     description: [],
@@ -28,7 +32,10 @@ class Books extends Component {
       .then(res =>
         this.setState({ books: res.data, title: "", author: "", synopsis: "" })
       )
-      .catch(err => console.log(err));
+      .catch((error) => {
+        console.log("Error occured while fetching data")
+        console.log(error)
+      })
   };
 
   // Deletes a book from the database with a given id, then reloads books from the db
