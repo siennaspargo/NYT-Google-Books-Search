@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Container from "../components/Container";
-import SearchForm from "../components/SearchForm";
-import SearchResults from "../components/SearchResults";
-import Alert from "../components/Alert";
+import Book from "../components/Book.js";
+import BookList from "../components/BookList.js";
+import NavBar from "../components/NavBar";
+import Saved from "../saved/Saved";
+
+
 
 class Search extends Component {
   state = {
@@ -40,6 +42,10 @@ class Search extends Component {
   render() {
     return (
       <div>
+        <NavBar></NavBar>
+        <BookList>
+          <Book></Book>
+        </BookList>
         <Container style={{ minHeight: "80%" }}>
           <h1 className="text-center">Search A Book Title</h1>
           <Alert
@@ -51,7 +57,7 @@ class Search extends Component {
           <SearchForm
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
-            breeds={this.state.breeds}
+            saved={this.state.saved}
           />
           <SearchResults results={this.state.results} />
         </Container>

@@ -24,11 +24,8 @@ function App() {
   return (
     <Router>
       <div>
-        <Wrapper>
           <Route exact path="/" component={Search} />
           <Route exact path="/search" component={Search} />
-        </Wrapper>
-   
       </div>
     </Router>
   );

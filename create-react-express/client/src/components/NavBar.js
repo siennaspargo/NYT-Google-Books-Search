@@ -15,7 +15,7 @@ const NavBar = () => {
       <AppBar postion="static">
         <Toolbar>
           <Typography variant="title" color="inherit">
-              Google Books API Search and Save
+              Sienna's Google Books API Search and Save
           </Typography>
         </Toolbar>
       </AppBar>

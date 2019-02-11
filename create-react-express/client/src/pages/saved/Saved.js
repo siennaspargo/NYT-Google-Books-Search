@@ -9,7 +9,7 @@ import * as contentful from 'contentful'
 import Book from '../Book/index'
 
 
-class Books extends Component {
+class Saved extends Component {
   // Setting our component's initial state
   state = {
     searchString: '',
@@ -30,7 +30,7 @@ class Books extends Component {
   loadBooks = () => {
     API.getBooks()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+        this.setState({ books: res.data, title: "", author: "", description: "" })
       )
       .catch((error) => {
         console.log("Error occured while fetching data")
@@ -132,4 +132,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Saved;
