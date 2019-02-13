@@ -1,12 +1,20 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import DeleteBtn from "../../components/DeleteBtn/index";
+import Jumbotron from "../../components/Jumbotron/index";
 import API from "../../utils/API";
+import { Col, Row, Container } from "../../components/Grid/index";
+import { List, ListItem } from "../../components/List/index";
+import { Input, TextArea, FormBtn } from "../../components/Form/index";
 
 
-// Material UI
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import * as contentful from 'contentful'
-import Book from '../Book/index'
+
+// // Material UI
+// import Grid from '@material-ui/core/Grid'
+// import TextField from '@material-ui/core/TextField'
+// import * as contentful from 'contentful'
+// import Book from '../Book/index'
+// import Button from '@material-ui/core/Button';
 
 
 class Saved extends Component {
@@ -61,7 +69,7 @@ class Saved extends Component {
       API.saveBook({
         title: this.state.title,
         author: this.state.author,
-        synopsis: this.state.synopsis
+        description: this.state.description
       })
         .then(res => this.loadBooks())
         .catch(err => console.log(err));
@@ -99,7 +107,7 @@ class Saved extends Component {
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Submit
               </FormBtn>
             </form>
           </Col>
@@ -112,11 +120,11 @@ class Saved extends Component {
                 {this.state.books.map(book => {
                   return (
                     <ListItem key={book._id}>
-                      <a href={"/books/" + book._id}>
+                      <Link to={"/books/" + book._id}>
                         <strong>
                           {book.title} by {book.author}
                         </strong>
-                      </a>
+                      </Link>
                       <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                     </ListItem>
                   );

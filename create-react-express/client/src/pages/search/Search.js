@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import API from "../utils/API";
-import Book from "../components/Book.js";
-import BookList from "../components/BookList.js";
-import NavBar from "../components/NavBar";
-import Saved from "../saved/Saved";
-
+import API from "../../utils/API";
+import NavBar from "../../components/Nav";
+import Saved from "../saved/index";
+import Title from "../../components/"
 
 
 class Search extends Component {
@@ -43,9 +41,8 @@ class Search extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <BookList>
-          <Book></Book>
-        </BookList>
+        <Search></Search>
+          <Saved></Saved>
         <Container style={{ minHeight: "80%" }}>
           <h1 className="text-center">Search A Book Title</h1>
           <Alert
